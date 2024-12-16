@@ -1,0 +1,69 @@
+CREATE DATABASE IoT_Lab2_0;
+USE IoT_Lab2_0;
+
+CREATE TABLE Maquina (
+    id_maquina INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    localizacao VARCHAR(100),
+    status VARCHAR(50),
+    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE Sensor (
+    id_sensor INT AUTO_INCREMENT PRIMARY KEY,
+    id_maquina INT,
+    tipo VARCHAR(50),
+    unidade_medida VARCHAR(20),
+    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_maquina) REFERENCES Maquina(id_maquina)
+);
+
+CREATE TABLE Atuador (
+    id_atuador INT AUTO_INCREMENT PRIMARY KEY,
+    id_maquina INT,
+    tipo VARCHAR(50),
+    status VARCHAR(50),
+    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_maquina) REFERENCES Maquina(id_maquina)
+);
+
+CREATE TABLE Dados_Sensor (
+    id_dados_sensor INT AUTO_INCREMENT PRIMARY KEY,
+    id_sensor INT,
+    valor FLOAT,
+    timestamp DATETIME,
+    FOREIGN KEY (id_sensor) REFERENCES Sensor(id_sensor)
+);
+
+CREATE TABLE Energia_Consumida (
+    id_energia INT AUTO_INCREMENT PRIMARY KEY,
+    id_maquina INT,
+    consumo FLOAT,
+    periodo DATETIME,
+    FOREIGN KEY (id_maquina) REFERENCES Maquina(id_maquina)
+);
+
+CREATE TABLE KPI (
+    id_kpi INT AUTO_INCREMENT PRIMARY KEY,
+    descricao VARCHAR(255),
+    valor FLOAT,
+    calculado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE Manutencao (
+    id_manutencao INT AUTO_INCREMENT PRIMARY KEY,
+    id_maquina INT,
+    descricao TEXT,
+    data_manutencao DATETIME,
+    tecnico_responsavel VARCHAR(100),
+    FOREIGN KEY (id_maquina) REFERENCES Maquina(id_maquina)
+);
+
+CREATE TABLE Alerta (
+    id_alerta INT AUTO_INCREMENT PRIMARY KEY,
+    id_maquina INT,
+    tipo VARCHAR(100),
+    descricao TEXT,
+    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_maquina) REFERENCES Maquina(id_maquina)
+);
