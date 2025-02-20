@@ -75,6 +75,16 @@ CREATE TABLE Utilizadores (
     role VARCHAR(50)
 );
 
+CREATE TABLE Produto (
+    id_produto INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    data DATE NOT NULL, 
+    hora TIME NOT NULL,  
+    temperatura INT,
+    nr_a_produzir INT,
+    estado ENUM('Em Produção...', 'Fase da Mistura', 'Produzido com Sucesso!') NOT NULL
+);
+
 INSERT INTO Utilizadores (username, password, role) 
 VALUES ('admin', '12345', 'admin'),
        ('user1', 'abcde', 'operator');
