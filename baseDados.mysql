@@ -84,6 +84,14 @@ CREATE TABLE Produto (
     nr_a_produzir INT,
     estado ENUM('Em Produção...', 'Fase da Mistura', 'Produzido com Sucesso!') NOT NULL
 );
+
+
+CREATE TABLE Ingrediente (
+    id_produto INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    descricao VARCHAR(100) NOT NULL
+);
+
 INSERT INTO Ingrediente (nome, descricao) VALUES
 ('Amêndoa','5g'),
 ('Leite Normal','30ml'),
