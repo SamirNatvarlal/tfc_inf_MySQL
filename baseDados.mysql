@@ -84,6 +84,20 @@ CREATE TABLE Produto (
     nr_a_produzir INT,
     estado ENUM('Em Produção...', 'Fase da Mistura', 'Produzido com Sucesso!') NOT NULL
 );
+INSERT INTO Ingrediente (nome, descricao) VALUES
+('Amêndoa','5g'),
+('Leite Normal','30ml'),
+('Cacau em pó','100g'),
+('Manteiga de Cacau','80g'),
+('Leite Condensado','30g'),
+('Farinha de trigo', '200g'),
+('Açúcar', '150g'),
+('Leite', '250ml'),
+('Chocolate em pó', '100g'),
+('Essência de baunilha', '5ml'),
+('Mel', '50g'),
+('Fermento químico', '10g'),
+('Óleo vegetal', '100ml');
 
 INSERT INTO Utilizadores (username, password, role) 
 VALUES ('admin', '12345', 'admin'),
