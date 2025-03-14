@@ -94,20 +94,20 @@ CREATE TABLE Ingrediente (
 
 CREATE TABLE `DHT11Sensor` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `timestamp` datetime DEFAULT CURRENT_TIMESTAMP,
+  `timestamp` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   `temperature` float DEFAULT NULL,
   `humidity` float DEFAULT NULL,
   PRIMARY KEY (`id`)
-) 
+); 
 
 CREATE TABLE `PowerSensor` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `timestamp` datetime DEFAULT CURRENT_TIMESTAMP,
+  `timestamp` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   `voltage` float DEFAULT NULL,
   `current` float DEFAULT NULL,
   `power` float DEFAULT NULL,
   PRIMARY KEY (`id`)
-)
+);
 
 INSERT INTO Ingrediente (nome, descricao) VALUES
 ('Amêndoa','5g'),
