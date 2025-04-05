@@ -109,6 +109,19 @@ CREATE TABLE `PowerSensor` (
   PRIMARY KEY (`id`)
 );
 
+CREATE TABLE AllData (
+    id INT NOT NULL AUTO_INCREMENT,
+    id_maquina VARCHAR(100) NOT NULL,
+    data DATETIME NOT NULL,
+    estado ENUM('OK', 'Not OK') NOT NULL,
+    temperature FLOAT DEFAULT NULL,
+    humidity FLOAT DEFAULT NULL,
+    voltage FLOAT DEFAULT NULL,
+    current FLOAT DEFAULT NULL,
+    power FLOAT DEFAULT NULL,
+    PRIMARY KEY (id)
+);
+
 INSERT INTO Ingrediente (nome, descricao) VALUES
 ('Amêndoa','5g'),
 ('Leite Normal','30ml'),
